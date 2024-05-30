@@ -18,5 +18,5 @@ an integer indicating the fitted model.}
 a list
 }
 \description{
-Object Summaries
+\code{summary} method for class \code{multipleOutcomes}.
 }

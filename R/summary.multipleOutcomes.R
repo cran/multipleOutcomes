@@ -1,5 +1,7 @@
 #' Object Summaries
-#'
+#' @description
+#' `summary` method for class `multipleOutcomes`.
+#' 
 #' @param object an object returned by `multipleOutcomes()`.
 #' @param model_index `NULL` if displaying summary of all fitted models; otherwise,
 #' an integer indicating the fitted model.

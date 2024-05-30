@@ -18,5 +18,6 @@ otherwise, an integer indicating the fitted model.}
 a matrix of covariance of all estimates
 }
 \description{
-Calculate Variance-Covariance Matrix for a Fitted Model Object
+Returns the variance-covariance matrix of the main parameters of fitted model
+objects. The "main" parameters of models correspond to those returned by \code{coef}.
 }

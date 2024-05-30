@@ -8,12 +8,12 @@ Covariance}
 multipleOutcomes(..., family, data, data_index = NULL, score_epsilon = 1e-06)
 }
 \arguments{
-\item{...}{formulas of models to be fitted.}
+\item{...}{formulas of models to be fitted, or moment functions for gmm.}
 
 \item{family}{a character vector of families to be used in the models.
-Currently only \code{gaussian} and \code{binomial} are supported. \code{cox} for time-to-event
-data with potential censoring and \code{long} for longitudinal data may be supported
-in the future. \code{family} can be of length 1 if all models are fitted in the
+Currently only \code{gaussian}, \code{binomial}, \code{coxph} and \code{gmm} are supported.
+\code{long} for longitudinal data may be supported in the future.
+\code{family} can be of length 1 if all models are fitted in the
 same family; otherwise family should be specified for each of the models in \code{...}.}
 
 \item{data}{a data frame if all models are fitted on the same dataset;
@@ -49,8 +49,9 @@ being used to fit the models. \cr
 }
 }
 \description{
-Fitting Regression Models for Multiple Outcomes and Returning the Matrix of
-Covariance
+\code{multipleOutcomes} can fit different types of models for multiple outcomes
+simultaneously and return model parameters and variance-covariance matrix
+for further analysis.
 }
 \examples{
 ## More examples can be found in the vignettes.

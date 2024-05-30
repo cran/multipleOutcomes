@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>test</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">test</h1>
+
+
+
+<p>test.R</p>
+<pre><code>#&gt; asaur::pharmacoSmoking
+#&gt; Relative Efficiency: 1.14
+#&gt;                                 term estimate stderr pvalue     method    corr
+#&gt; 1  Surv(time = ttr, event = relapse)   -0.538   0.20 0.0074      PATED      NA
+#&gt; 2  Surv(time = ttr, event = relapse)   -0.605   0.21 0.0048   Standard  1.0000
+#&gt; 3                                age    2.170   2.11 0.3030 Prognostic -0.2144
+#&gt; 4                       yearsSmoking    1.963   2.08 0.3461 Prognostic -0.1494
+#&gt; 5                      priorAttempts   15.514  16.35 0.3426 Prognostic  0.0187
+#&gt; 6                     longestNoSmoke  116.806 192.25 0.5435 Prognostic -0.1463
+#&gt; 7                             gender    0.074   0.38 0.8438 Prognostic -0.0740
+#&gt; 8                 I(race == &quot;black&quot;)   -0.543   0.40 0.1717 Prognostic  0.0816
+#&gt; 9              I(race == &quot;hispanic&quot;)    0.051   0.73 0.9443 Prognostic -0.0420
+#&gt; 10                I(race == &quot;white&quot;)    0.467   0.37 0.2108 Prognostic -0.0243
+#&gt; 11             I(employment == &quot;ft&quot;)   -0.149   0.36 0.6821 Prognostic -0.1217
+#&gt; 12             I(employment == &quot;pt&quot;)    0.054   0.57 0.9244 Prognostic  0.1133
+#&gt; 13        I(levelSmoking == &quot;heavy&quot;)    0.089   0.40 0.8231 Prognostic -0.0067</code></pre>
+<p>test.R</p>
+<pre><code>#&gt; coin::glioma
+#&gt; Relative Efficiency: 1.66
+#&gt;                               term estimate stderr  pvalue     method corr
+#&gt; 1 Surv(time = time, event = event)   -1.423   0.36 7.1e-05      PATED   NA
+#&gt; 2 Surv(time = time, event = event)   -1.829   0.46 7.4e-05   Standard 1.00
+#&gt; 3                              age   -3.272   4.67 4.8e-01 Prognostic 0.33
+#&gt; 4                              sex    0.095   0.67 8.9e-01 Prognostic 0.13
+#&gt; 5            I(histology == &quot;GBM&quot;)   -1.012   0.69 1.4e-01 Prognostic 0.59</code></pre>
+<p>test.R</p>
+<pre><code>#&gt; iBST::burn
+#&gt; Relative Efficiency: 1.15
+#&gt;                           term estimate stderr pvalue     method   corr
+#&gt; 1  Surv(time = T3, event = D3)   -0.582   0.27  0.034      PATED     NA
+#&gt; 2  Surv(time = T3, event = D3)   -0.561   0.29  0.056   Standard  1.000
+#&gt; 3                           Z2   -0.083   0.39  0.832 Prognostic -0.149
+#&gt; 4                           Z3    0.088   0.49  0.858 Prognostic  0.215
+#&gt; 5                           Z5   -0.125   0.33  0.702 Prognostic  0.029
+#&gt; 6                           Z6    0.442   0.40  0.265 Prognostic  0.113
+#&gt; 7                           Z7    0.821   0.46  0.074 Prognostic  0.055
+#&gt; 8                           Z8   -0.256   0.33  0.438 Prognostic -0.035
+#&gt; 9                           Z9    0.294   0.36  0.408 Prognostic -0.042
+#&gt; 10                         Z10   -0.448   0.36  0.210 Prognostic -0.013
+#&gt; 11                 I(Z11 == 1)    0.541   0.73  0.458 Prognostic -0.104
+#&gt; 12                 I(Z11 == 2)   -0.718   0.52  0.163 Prognostic  0.025
+#&gt; 13                 I(Z11 == 3)    0.405   0.65  0.533 Prognostic  0.195
+#&gt; 14                          Z4   -5.483   3.18  0.085 Prognostic  0.074</code></pre>
+<p>test.R</p>
+<pre><code>#&gt; invGauss::d.oropha.rec
+#&gt; Relative Efficiency: 1.06
+#&gt;                                term estimate stderr pvalue     method  corr
+#&gt; 1 Surv(time = time, event = status)  0.16718  0.166   0.31      PATED    NA
+#&gt; 2 Surv(time = time, event = status)  0.17374  0.171   0.31   Standard 1.000
+#&gt; 3                       I(sex == 1)  0.00065  0.061   0.99 Prognostic 0.050
+#&gt; 4                               age -0.37169  1.572   0.81 Prognostic 0.019
+#&gt; 5                            tstage -0.03691  0.117   0.75 Prognostic 0.181
+#&gt; 6                            nstage  0.13222  0.171   0.44 Prognostic 0.118</code></pre>
+<p>test.R</p>
+<pre><code>#&gt; JM::aids.id
+#&gt; Relative Efficiency: 1.25
+#&gt;                               term estimate stderr pvalue     method  corr
+#&gt; 1 Surv(time = Time, event = death)   -0.247   0.13  0.059      PATED    NA
+#&gt; 2 Surv(time = Time, event = death)   -0.210   0.15  0.150   Standard  1.00
+#&gt; 3                              CD4   -0.213   0.44  0.625 Prognostic -0.40
+#&gt; 4                           gender   -0.016   0.31  0.959 Prognostic -0.03
+#&gt; 5              I(prevOI == &quot;AIDS&quot;)    0.084   0.20  0.668 Prognostic  0.35
+#&gt; 6          I(AZT == &quot;intolerance&quot;)   -0.080   0.19  0.676 Prognostic -0.23</code></pre>
+<p>test.R</p>
+<pre><code>#&gt; mlr3proba::actg
+#&gt; Relative Efficiency: 1.09
+#&gt;                                term estimate stderr pvalue     method    corr
+#&gt; 1  Surv(time = time, event = event)  -0.6755   0.21 0.0011      PATED      NA
+#&gt; 2  Surv(time = time, event = event)  -0.6844   0.22 0.0015   Standard  1.0000
+#&gt; 3                            strat2  -0.0011   0.12 0.9930 Prognostic -0.1825
+#&gt; 4                               sex   0.1517   0.16 0.3305 Prognostic  0.0011
+#&gt; 5                    I(ivdrug == 1)   0.0328   0.16 0.8389 Prognostic  0.0398
+#&gt; 6                    I(raceth == 1)   0.0665   0.12 0.5732 Prognostic  0.0048
+#&gt; 7                    I(raceth == 2)  -0.0183   0.13 0.8884 Prognostic -0.0435
+#&gt; 8                    I(raceth == 3)  -0.0774   0.15 0.6170 Prognostic  0.0264
+#&gt; 9                          hemophil  -0.4126   0.35 0.2389 Prognostic -0.0164
+#&gt; 10                 I(karnof == 100)  -0.0537   0.12 0.6656 Prognostic -0.0961
+#&gt; 11                  I(karnof == 90)   0.0587   0.12 0.6196 Prognostic -0.0467
+#&gt; 12                  I(karnof == 80)  -0.0460   0.16 0.7759 Prognostic  0.1200
+#&gt; 13                  I(karnof == 70)   0.1341   0.36 0.7091 Prognostic  0.1489
+#&gt; 14                              cd4   4.3155   4.13 0.2958 Prognostic -0.1939
+#&gt; 15                         priorzdv   0.1439   1.72 0.9334 Prognostic -0.0396
+#&gt; 16                              age   0.0503   0.52 0.9229 Prognostic  0.0609</code></pre>
+<p>test.R</p>
+<pre><code>#&gt; joint.Cox::dataOvarian1
+#&gt; Relative Efficiency: 1.1
+#&gt;                                  term estimate stderr pvalue     method  corr
+#&gt; 1 Surv(time = t.event, event = event)  -0.1651  0.077  0.033      PATED    NA
+#&gt; 2 Surv(time = t.event, event = event)  -0.1696  0.081  0.036   Standard 1.000
+#&gt; 3                              CXCL12  -0.0341  0.061  0.576 Prognostic 0.202
+#&gt; 4                               NCOA3  -0.0583  0.060  0.331 Prognostic 0.154
+#&gt; 5                                PDPN   0.0238  0.066  0.720 Prognostic 0.194
+#&gt; 6                               TEAD1   0.0086  0.067  0.897 Prognostic 0.188
+#&gt; 7                               TIMP2   0.0381  0.061  0.535 Prognostic 0.192
+#&gt; 8                               YWHAB   0.0114  0.055  0.837 Prognostic 0.088</code></pre>
+<p>test.R</p>
+<pre><code>#&gt; pec::Pbc3
+#&gt; Relative Efficiency: 1.58
+#&gt;                                term estimate stderr pvalue     method    corr
+#&gt; 1  Surv(time = days, event = event)   -0.193   0.17   0.25      PATED      NA
+#&gt; 2  Surv(time = days, event = event)   -0.059   0.21   0.78   Standard  1.0000
+#&gt; 3                               sex    0.026   0.30   0.93 Prognostic  0.1432
+#&gt; 4                     I(stage == 1)   -0.107   0.31   0.73 Prognostic -0.2463
+#&gt; 5                     I(stage == 2)   -0.336   0.26   0.20 Prognostic -0.1746
+#&gt; 6                     I(stage == 3)    0.168   0.28   0.55 Prognostic -0.0013
+#&gt; 7                     I(stage == 4)    0.253   0.26   0.32 Prognostic  0.3682
+#&gt; 8                           gibleed   -0.590   0.31   0.06 Prognostic  0.1358
+#&gt; 9                               age    0.142   1.06   0.89 Prognostic  0.0618
+#&gt; 10                             crea   -1.150   1.97   0.56 Prognostic -0.1020
+#&gt; 11                             bili    6.219   7.23   0.39 Prognostic  0.4977
+#&gt; 12                            alkph  -12.043  80.55   0.88 Prognostic  0.0986
+#&gt; 13                            asptr    2.641   5.69   0.64 Prognostic  0.2231
+#&gt; 14                           weight    0.391   1.11   0.72 Prognostic -0.1465</code></pre>
+<p>test.R</p>
+<pre><code>#&gt; pec::cost
+#&gt; Relative Efficiency: 1.47
+#&gt;                                 term estimate stderr pvalue     method   corr
+#&gt; 1  Surv(time = time, event = status) -1.8e-01  0.079  0.024      PATED     NA
+#&gt; 2  Surv(time = time, event = status) -1.4e-01  0.095  0.140   Standard  1.000
+#&gt; 3                                age  6.7e-01  0.900  0.459 Prognostic  0.417
+#&gt; 4                        strokeScore -5.1e-01  1.009  0.613 Prognostic -0.268
+#&gt; 5                            cholest  2.7e-02  0.118  0.819 Prognostic -0.055
+#&gt; 6                                sex -1.1e-01  0.164  0.514 Prognostic  0.097
+#&gt; 7                             hypTen  1.8e-01  0.173  0.301 Prognostic  0.081
+#&gt; 8                                ihd -3.0e-15  0.218  1.000 Prognostic  0.133
+#&gt; 9                         prevStroke -8.6e-02  0.207  0.680 Prognostic  0.145
+#&gt; 10                        othDisease -2.6e-02  0.230  0.909 Prognostic  0.139
+#&gt; 11                           alcohol -3.2e-01  0.175  0.068 Prognostic -0.122
+#&gt; 12                          diabetes -1.6e-01  0.234  0.485 Prognostic  0.123
+#&gt; 13                             smoke -2.3e-01  0.165  0.163 Prognostic -0.093
+#&gt; 14                         atrialFib  3.3e-01  0.247  0.181 Prognostic  0.203
+#&gt; 15                             hemor  3.0e-01  0.449  0.507 Prognostic  0.026</code></pre>
+<p>test.R</p>
+<pre><code>#&gt; pec::GBSG2
+#&gt; Relative Efficiency: 1.18
+#&gt;                              term estimate stderr pvalue     method   corr
+#&gt; 1 Surv(time = time, event = cens)    -0.33   0.11 0.0039      PATED     NA
+#&gt; 2 Surv(time = time, event = cens)    -0.36   0.12 0.0034   Standard  1.000
+#&gt; 3                           tsize    -0.82   1.13 0.4696 Prognostic  0.169
+#&gt; 4                          pnodes     0.19   0.43 0.6643 Prognostic  0.326
+#&gt; 5                         progrec    22.29  17.84 0.2116 Prognostic -0.187
+#&gt; 6                I(tgrade == &quot;I&quot;)     0.24   0.24 0.3305 Prognostic -0.159
+#&gt; 7               I(tgrade == &quot;II&quot;)     0.11   0.17 0.5291 Prognostic  0.006
+#&gt; 8              I(tgrade == &quot;III&quot;)    -0.28   0.19 0.1472 Prognostic  0.123</code></pre>
+<p>test.R</p>
+<pre><code>#&gt; randomForestSRC::follic
+#&gt; Relative Efficiency: 1.11
+#&gt;                                term estimate stderr pvalue     method   corr
+#&gt; 1 Surv(time = time, event = status)    -0.15   0.14   0.28      PATED     NA
+#&gt; 2 Surv(time = time, event = status)    -0.23   0.15   0.13   Standard  1.000
+#&gt; 3                               age    -2.37   1.47   0.11 Prognostic  0.311
+#&gt; 4                               hgb     0.84   1.52   0.58 Prognostic -0.082</code></pre>
+<p>test.R</p>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

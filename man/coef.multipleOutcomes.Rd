@@ -18,5 +18,5 @@ otherwise, an integer indicating the fitted model.}
 a vector of coefficient estimates
 }
 \description{
-Extract Model Coefficients
+\code{coef} is a generic function.
 }

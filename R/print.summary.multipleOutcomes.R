@@ -1,5 +1,7 @@
-#' Title
-#'
+#' Title Summarize an Analysis of Multiple Outcomes.
+#' @description
+#' Summarize an analysis of multiple outcomes. 
+#' 
 #' @param x an object returned by `multipleOutcomes()`.
 #' @param ... for debugging only.
 #'

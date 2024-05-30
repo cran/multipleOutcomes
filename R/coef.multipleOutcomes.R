@@ -1,6 +1,8 @@
 
 #' Extract Model Coefficients
-#'
+#' @description
+#' `coef` is a generic function. 
+#' 
 #' @param object an object returned by `multipleOutcomes()`.
 #' @param model_index `NULL` if displaying coefficients of all fitted models;
 #' otherwise, an integer indicating the fitted model.

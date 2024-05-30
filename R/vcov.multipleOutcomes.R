@@ -1,5 +1,8 @@
 #' Calculate Variance-Covariance Matrix for a Fitted Model Object
-#'
+#' @description
+#' Returns the variance-covariance matrix of the main parameters of fitted model 
+#' objects. The "main" parameters of models correspond to those returned by `coef`. 
+#' 
 #' @param object an object returned by `multipleOutcomes()`.
 #' @param model_index `NULL` if displaying covariance matrix of all fitted models;
 #' otherwise, an integer indicating the fitted model.

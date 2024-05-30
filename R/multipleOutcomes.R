@@ -1,14 +1,22 @@
 #' Fitting Regression Models for Multiple Outcomes and Returning the Matrix of
 #' Covariance
+#' @description
+#' `multipleOutcomes` can fit different types of models for multiple outcomes 
+#' simultaneously and return model parameters and variance-covariance matrix 
+#' for further analysis. 
+#' 
 #' @importFrom stats coef cov fitted formula glm model.frame model.matrix pchisq
-#' printCoefmat resid
-#' @importFrom dplyr %>%
+#' printCoefmat resid vcov cov2cor
+#' @importFrom momentfit gmm4
+#' @importFrom stringr str_glue
+#' @importFrom dplyr %>% mutate
+#' @importFrom survival coxph coxph.detail
 #'
-#' @param ... formulas of models to be fitted.
+#' @param ... formulas of models to be fitted, or moment functions for gmm. 
 #' @param family a character vector of families to be used in the models.
-#' Currently only `gaussian` and `binomial` are supported. `cox` for time-to-event
-#' data with potential censoring and `long` for longitudinal data may be supported
-#' in the future. `family` can be of length 1 if all models are fitted in the
+#' Currently only `gaussian`, `binomial`, `coxph` and `gmm` are supported.
+#' `long` for longitudinal data may be supported in the future.
+#' `family` can be of length 1 if all models are fitted in the
 #' same family; otherwise family should be specified for each of the models in `...`.
 #' @param data a data frame if all models are fitted on the same dataset;
 #' otherwise a list of data frames for fitting models in `...`. Note that a

@@ -2,7 +2,7 @@
 % Please edit documentation in R/print.summary.multipleOutcomes.R
 \name{print.summary.multipleOutcomes}
 \alias{print.summary.multipleOutcomes}
-\title{Title}
+\title{Title Summarize an Analysis of Multiple Outcomes.}
 \usage{
 \method{print}{summary.multipleOutcomes}(x, ...)
 }
@@ -15,7 +15,7 @@
 an invisible object.
 }
 \description{
-Title
+Summarize an analysis of multiple outcomes.
 }
 \examples{
 ## no example
